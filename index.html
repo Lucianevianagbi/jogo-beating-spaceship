@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BEATING SPACESHIP</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Chilanka&display=swap" rel="stylesheet">
+
+</head>
+
+<body onKeyDown="return verificar(event)">
+
+<div class="titulo">
+    <h2>
+        PONTOS: <strong id="placar">0</strong><br>
+        <span>RECORDE: <strong id="recorde">0</strong></span>
+    </h2>
+    <h1>&#x1F680; &#x1F680; &#x1F680; BEATING SPACESHIP &#x1F680; &#x1F680; &#x1F680;</h1>
+</div>
+
+<main>
+    <div class="ResponsividadePaineis">
+        <div class="botoes">
+
+            <div class="painel">
+                <p><i class="fas fa-trophy" style="color: #ff7b00"></i><strong> Nível:</strong></p>
+                <strong style="white-space: nowrap"><span id="niveis">0</span><span>/310</span></strong>
+            </div>
+
+            <div class="painel">
+                <p><i class="fas fa-landmark" style="color: #d109b0"></i><strong> Fase:</strong></p>
+                <strong style="white-space: nowrap"><span id="fases">0</span><span>/30</span></strong>
+            </div>
+
+            <div class="painel">
+                <p><i class="fas fa-bullseye" style="color: #00f"></i><strong> Alvos:</strong></p>
+                <span id="alvos">0</span>
+            </div>
+
+            <div class="painel">
+                <p><i class="fas fa-heartbeat" style="color: #f00"></i><strong> Vidas:</strong></p>
+                <span id="vida">3</span>
+            </div>
+
+            <div class="painel">
+                <p style="display: flex; flex-direction: row; justify-content: center"><i class="fas fa-crosshairs"
+                                                                                          style="color: green"></i><strong>
+                    Acertos:</strong></p>
+                <span id="acertos">0</span>
+            </div>
+
+            <div class="painel">
+                <p><strong> Naves:</strong></p>
+
+                <label class="dropdown">
+
+                    <div class="dd-button">
+                        <strong style="color: #016f89;font-family: 'Chilanka', cursive;font-size: 14px;padding-right: 8px;">Escolher
+                            &#x1F680;</strong>
+                    </div>
+
+                    <input type="checkbox" class="dd-input" id="test">
+
+                    <ul class="dd-menu">
+                        <li id="nave1" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/cursors/cur-8/cur727.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave2" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/cursors/cur-9/cur864.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave3" class="nav"
+                            style="background: url('http://ani.cursors-4u.net/cursors/cur-13/cur1162.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave4" class="nav"
+                            style="background: url('http://ani.cursors-4u.net/cursors/cur-13/cur1159.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave5" class="nav"
+                            style="background: url('http://ani.cursors-4u.net/cursors/cur-13/cur1161.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave6" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/cursors/cur-11/cur1021.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave7" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/toons/too-10/too1011.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave8" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/cursors/cur-10/cur954.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                        <li class="divider"></li>
+
+                        <li id="nave9" class="nav"
+                            style="background: url('http://cur.cursors-4u.net/cursors/cur-9/cur805.png') no-repeat center; background-size: contain; width: auto; height: 4px; margin: 5px;"></li>
+                    </ul>
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="botoes">
+
+            <div>
+                <button onclick="start()" class="verde">
+                    <i class="fas fa-play"></i><b> Iniciar</b>
+                </button>
+            </div>
+
+            <div>
+                <button onclick="pausar()" class="azul">
+                    <i class="fas fa-pause"></i><b> Pausar</b>
+                </button>
+            </div>
+
+            <div>
+                <button onclick="stop()" class="vermelho">
+                    <i class="fas fa-square"></i><b> Reiniciar</b>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="pai">
+        <div id="gameover">
+            <div id="escuro">
+                <h1><span style="color: #fff!important; text-shadow: 1px 1px 5px #000;">PAUSADO!</span></h1>
+            </div>
+        </div>
+        <div id="video"></div>
+    </div>
+
+</main>
+
+<div class="copyright">
+    by Éverton Toffanetto
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
