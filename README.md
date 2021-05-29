@@ -6,3 +6,5 @@ Link do Projeto: https://jogobeatingspaceship.netlify.app/
 <br> <br>
 
 ![Imagem do projeto](https://raw.githubusercontent.com/Lucianevianagbi/jogo-beating-spaceship/master/essa.jpg)
+<br>
+Autor: Éverton Toffanetto
